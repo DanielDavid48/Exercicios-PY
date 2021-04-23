@@ -5,36 +5,43 @@ termo = int(input('Insira o 1° termo: '))
 razao = int(input('Insira a razão: '))
 qtd = int(input('Insira quantos termos quer ver: '))
 
-
+termo1 = termo
+voltar = ''
 cont = 1
 
 while cont <= qtd:
-    print(termo)
-    termo += razao
+    termo1 += razao
     cont += 1
+    print(termo1)
 
-print('------------------------------')
-print("""OPÇÕES:
-[ 1 ] ver mais termos
-[ 2 ] finalizar programa""")
+while voltar == '':
+    print('\033[33m------------------------------\033[m')
+    print("""OPÇÕES:
+    \033[33m[ 1 ]\033[m ver mais termos
+    \033[33m[ 2 ]\033[m finalizar programa""")
 
-opcao = input('Insira a opção: ')
+    opcao = input('Insira a opção: ')
 
-if opcao == '1':
-    mais = int(input('Você quer ver mais quantos termos: '))
-    cont1 = 1
-    while cont <= mais:
-        print(termo)
-        termo += razao
-        cont1 += 1
+    if opcao == '1':
+        mais = int(input('Você quer ver mais quantos termos: '))
+        total = qtd + mais
+        #qtd_termos = qtd
+        cont1 = cont
+        while cont1 <= total:
+            termo1 += razao
+            cont1 += 1
+            print(termo1)
+        voltar = input('Aperte ENTER para voltar ao menu! ')
 
-elif opcao == '2':
-    print('Finalizando programa...')
-    print('Programa finalizado!')
-    time.sleep(1)
+    elif opcao == '2':
+        conta = total
+        print(f'\033[33mFinalizando programa com {total} termos mostrados...\033[m')
+        time.sleep(1)
+        break
 
-else:
-    print('Opcao invalida!')
+    else:    
+        print('\033[31mOpcao invalida!\033[m')
+    
 
-    print('Programa finalizado!')
-    time.sleep(1)
+print('Programa finalizado!')    
+time.sleep(1)
