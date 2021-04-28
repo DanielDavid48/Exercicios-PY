@@ -1,5 +1,3 @@
-
-
 print('Seja bem vindo!')
 # listas
 lista_num = [[], [], []]
@@ -9,7 +7,7 @@ cont_qtd_par = 0
 cont_qtd_impar = 0
 # obtencao de dados
 for i in range(0, 7):
-    n = int(input(f'Digite o valor {i + 1}: '))
+    n = int(input(f'Digite o {i + 1}º valor: '))
     if n % 2 == 0:
         lista_num[0].append(n)
         cont_qtd_par += 1

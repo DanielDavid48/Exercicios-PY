@@ -10,7 +10,7 @@ while continuar == '':
     print(f'\033[36m            CADASTRANDO O {cont}° USUÁRIO            \033[m')
     cont += 1
     nome = str(input('Insira o nome da pessoa: '))
-    peso = int(input(f'Insira o peso da {nome}: '))
+    peso = float(input(f'Insira o peso da {nome}: '))
     dados.append(nome)
     dados.append(peso)
     geral.append(dados[:])
