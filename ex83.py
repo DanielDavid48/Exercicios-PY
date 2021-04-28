@@ -1,3 +1,5 @@
+import re
+
 lista = []
 expressao = input('Digite uma expressão matemática: ').strip()
 lista.append(expressao)
@@ -12,55 +14,40 @@ lendo_expressao = len(expressao1)
 print(f'Você digitou a expressão {expressao1}.')
 print(f'Essa expressão tem {lendo_expressao} caracteres.')
 
-# VALIDANDO SE A EXPRESSAO ESTA FECHADA COM APENAS 1 ')'
-# SE ESTIVER, ELA É VERDADEIRA
-fatiando_string = expressao1[-1]
-validacao = ')' in fatiando_string
+# Validando se a expressao comeca com ')'
+fatiando_string_inicio = expressao1[0]
+validacao_inicial = ')' in fatiando_string_inicio
+if validacao_inicial == True:
+    print(f'A expressão matemática {expressao1} é inválida!')
 
-# VALIDANDO SE A EXPRESSAO ESTA FECHADA COM 2 ')', SENDO NENHUM DOS ')' UM FECHAMENTO DE UMA SUB-EXPRESSÃO
-# SE ESTIVER, ELA É FALSA
-#fatiando_string2 = expressao1[2:]
-#validacao2 = '))' in fatiando_string2
-
-# VALIDANDO SE A EXPRESSAO ESTA FECHADA COM 2 ')', SENDO UM DOS ')' UM FECHAMENTO DE UMA SUB-EXPRESSÃO
-# SE ESTIVER, ELA É VERDADEIRA
-#sublista = []
-#fatiando_string2 = expressao1[3:]
-#validacao2 = '))' in fatiando_string2
-#cont = 0
-#while validacao2 == True:
-#    procurando = expressao1.rfind('(', 2, -1)
-#    if procurando != 0:
-#        procurando2 = expressao1.rfind(')', procurando, -2)
-#        procurando = expressao1.rfind('(', procurando2, -2)
-#        while procurando != 0:
-#            procurando2 = expressao1.rfind(')', procurando, -2)
-#            procurando = expressao1.rfind('(', procurando2, -2)
-#            if procurando == False:
-#                cont += procurando
-#                print(f'teste{procurando}')
-#                break
-#        else:
-#            print('Mensagem de teste')
-#            break
-
-
-# VALIDANDO SE A EXPRESSAO ESTA FECHADA COM 3 ')', SENDO 1 ')' FECHAMENTO DE UMA SUB-EXPRESSÃO 
-# SE ESTIVER, ELA É FALSA
-fatiando_string3 = expressao1[3:]
-validacao3 = ')))' in fatiando_string3
-
-# VALIDANDO SE A EXPRESSAO COMEÇA COM '('
-# SE ESTIVER ELA É VERDADEIRA
-fatiando_string4= expressao1[0]
-validacao4 = '(' in fatiando_string3
-
-# VALIDACAO DA EXPRESSAO
-if validacao4 == True and validacao3 == True:
-    print('Sua expressão é inválida!')
-    
-elif validacao4 == True and validacao == True:
-    print('Sua expressão é válida!')
-    
 else:
-    print('em construção...')
+
+    # validando se a expressão ta fechada com 2 ')',
+
+    fatiando_string2 = expressao1[3:]
+    validacao2 = '(' in fatiando_string2
+    if validacao2 == True:
+        agr_retirar = "a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z"
+        del_characters = re.sub(agr_retirar, '', expressao1)
+        del_characters2 = re.sub('[-+/?@#$%¨&*=]', '', del_characters)
+        tirando_espacos_meio = del_characters2.split()
+        juntando_string = ''.join(tirando_espacos_meio)
+        lendo_string = len(juntando_string)
+        if lendo_string % 2 == 0:
+            verificar_1 = juntando_string.replace('(', '')
+            lendo_qtd_parenteses = len(verificar_1)
+            verificar_2 = juntando_string.replace(')', '')
+            lendo_qtd_parenteses2 = len(verificar_2)
+            if lendo_qtd_parenteses == lendo_qtd_parenteses2:
+                fatiando_string3 = expressao1[-3:]
+                validacao3 = ')))' in fatiando_string3
+                if validacao3 == True:
+                    print(f'A expressão que você digitou {expressao1} é inválida!')
+                else:
+                    print(f'A expressão {expressao1} é válida!')
+                
+            else:
+                print(f'A expressão {expressao1} não é válida!')
+        else:
+            print(f'A expressão {expressao1} não está válida!')
+
