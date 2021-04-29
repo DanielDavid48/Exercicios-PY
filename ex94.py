@@ -37,9 +37,11 @@ while continuar == '':
     
 media_idade = contador_idade_grupo / cont
 
-print('Analisando a lista, verificamos os seguintes:')
-print(f"""Foram cadastradas {cont} pessoas.
-A média de idade do grupo é de {media_idade:.2f} anos.""")
+print('\033[33mAnalisando a lista, verificamos os seguintes:\033[m')
+print('\033[36m=\033[m'*60)
+print(f"""Foram cadastradas \033[32m{cont} pessoas.\033[m
+A média de idade do grupo é de \033[32m{media_idade:.2f} anos.\033[m""")
+print('\033[36m=\033[m'*60)
 # se contador_nulheres for maior que 0 significa que ha mulheres na lista, entao imprime os dados respectivos abaixo
 if contador_mulheres > 0:
     print(f'\033[35mAs mulheres cadastradas são:\033[m', end= ' ')
@@ -50,15 +52,12 @@ if contador_mulheres > 0:
                 break
 else:
     print('\033[33mNão foram cadastradas nenhuma mulher!\033[m')
-    
+print()
 # aqui e responsavel por imprimir as pessoas com idade acima da media de idade geral
 print(f'\033[33mAs pessoas com idade acima da média do grupo que é {media_idade:.2f} são:\033[m', end= ' ')
 for n in dados:
-    for n in x.items():
-        if x["Idade"] > media_idade:
-            print(f'{x["Nome"]}', end= ', ')
+    for i in n.items():
+        if n["Idade"] > media_idade:
+            print(f'{n["Nome"]}', end= ', ')
             break
-        
-# pra fins de teste  
-print(dados)
-print(dicionario_pessoas)
+print()    
