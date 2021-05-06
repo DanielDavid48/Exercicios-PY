@@ -1,13 +1,7 @@
-frase = str(input('Insirama frase para verificar: '))
+frase = str(input('Insirama frase para verificar: ')).upper()
 
-dicio = ['ó', 'ò', 'ô']
 
-minu = frase.lower()
-quero_trocar = dicio
-trocar_por = "o"
-frase = minu.replace(quero_trocar, trocar_por, len(frase))
-
-a = minu
+a = frase
 b = "!@#$-,.~´`^"
 for char in b:
     a = a.replace(char,"")
@@ -19,7 +13,7 @@ palindromo = frasejunta1 == frasejunta1 == frasejunta1[:: -1]
 print(f'{frase} é palindrome?')
 
 if palindromo == True:
-    print(f'A frase {frase} é palindrome!')
+    print(f'\033[32mA frase {frase} é palindrome!\033[m')
 
 elif palindromo == False:
-    print(f'A frase {frase}, não é palindrome!')
+    print(f'\033[31mA frase {frase}, não é palindrome!\033[m')

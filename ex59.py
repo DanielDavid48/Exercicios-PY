@@ -27,7 +27,7 @@ while voltar == '':
 \033[33m[ 4 ]\033[m sair do programa""") 
 
 
-    if opcoes == '2':
+    elif opcoes == '2':
         nmulti = float(input('Insira um número: '))
         nmulti1 = float(input('Insira o outro número: '))
         multiplicando = nmulti * nmulti1
@@ -40,7 +40,7 @@ while voltar == '':
 \033[33m[ 3 ]\033[m dividir 
 \033[33m[ 4 ]\033[m sair do programa""") 
 
-    if opcoes == '3':
+    elif opcoes == '3':
         ndividi = float(input('Insira um número: '))
         ndividi1 = float(input('Insira o outro número: '))
         dividindo = ndividi / ndividi1
@@ -53,7 +53,7 @@ while voltar == '':
 \033[33m[ 3 ]\033[m dividir 
 \033[33m[ 4 ]\033[m sair do programa""") 
 
-    if opcoes == '4':
+    elif opcoes == '4':
         print('\033[33mSaindo do programa...\033[m')
         break
 

@@ -3,8 +3,8 @@ from datetime import date
 lista_maiores18 = []
 lista_menores18 = []
 
-for x in range(7):
-    nascimento = int(input('Insira o ano de nascimento: '))
+for x in range(1, 8):
+    nascimento = int(input(f'Insira o ano de nascimento da {x}° pessoa: '))
     ano = date.today().year
     calculo = ano - nascimento
     if calculo >= 18:

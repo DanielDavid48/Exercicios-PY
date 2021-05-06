@@ -1,7 +1,5 @@
-lista = ['a', 'b', 'c']
+s = str(input('Insira seu sexo: ')).lower()
+while s[0] not in 'fm':
+    s = str(input('Opçã inválida, digite novamente: ')).lower()
 
-posicao = 1
-
-nome_homem_mais_velho = lista[posicao]
-
-print(nome_homem_mais_velho)
+print('fim')

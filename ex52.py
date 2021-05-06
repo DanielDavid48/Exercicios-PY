@@ -6,6 +6,6 @@ for x in range(1, n + 1):
         cont += 1
 
 if cont == 2:
-    print("O número é primo")
+    print(f"O número {n} é primo")
 else:
-    print("O número não é primo")
+    print(f"O número {n} não é primo, ele é divisivel {cont} vezes.")

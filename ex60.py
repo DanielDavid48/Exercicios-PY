@@ -5,4 +5,4 @@ cont = b = n
 while cont != 1:
     cont -= 1
     b = b * cont
-print(b)
+    print(b)
